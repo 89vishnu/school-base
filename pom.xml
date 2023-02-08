@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>cvm</groupId>
+  <artifactId>cvm-base</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>Danster Maven Parent Project</name>
+  <url>http://maven.apache.org</url>
+  
+  
+  
+  
+  	<dependencyManagement>
+	     <dependencies>
+<!--	        <dependency>-->
+<!--	            &lt;!&ndash; Import dependency management from Spring Boot &ndash;&gt;-->
+<!--	            <groupId>org.springframework.boot</groupId>-->
+<!--	            <artifactId>spring-boot-dependencies</artifactId>-->
+<!--	            <version>1.5.7.RELEASE</version>-->
+<!--	            <type>pom</type>-->
+<!--	            <scope>import</scope>-->
+<!--	        </dependency>-->
+<!--	        <dependency>-->
+<!--				<groupId>org.springframework.cloud</groupId>-->
+<!--				<artifactId>spring-cloud-dependencies</artifactId>-->
+<!--				<version>Edgware.RELEASE</version>-->
+<!--				<type>pom</type>-->
+<!--				<scope>import</scope>-->
+<!--			</dependency>-->
+			 <dependency>
+				 <groupId>org.springframework.boot</groupId>
+				 <artifactId>spring-boot-starter-web</artifactId>
+			 </dependency>
+   		</dependencies>
+	</dependencyManagement>
+	
+<!--	<dependencies>-->
+
+
+
+<!--	-->
+<!--	</dependencies>-->
+  
+  	<properties>
+    	<java.version>1.8</java.version>
+    	<logback.version>1.0.6</logback.version>          
+		<jcloverslf4j.version>1.6.6</jcloverslf4j.version>
+		<spring.version>4.3.7.RELEASE</spring.version>
+
+	</properties>
+	
+	 <modules>
+		 <module>authentication</module>
+		 <module>common</module>
+	 </modules>
+    
+    <build>
+	<plugins>
+	  <plugin>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-compiler-plugin</artifactId>
+	    <version>3.2</version> <!-- or whatever current version -->
+	    <configuration>
+	      <source>1.8</source>
+	      <target>1.8</target>
+	    </configuration>
+	  </plugin>
+	</plugins>
+	</build>
+  
+</project>
