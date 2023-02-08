@@ -1,10 +1,7 @@
 package com.school.controllers;
 
-import com.school.exceptions.ValidationException;
 import com.school.models.dao.School;
-import com.school.models.dao.Users;
 import com.school.repository.SchoolRepository;
-import com.school.repository.UsersRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +17,6 @@ import java.util.List;
 @RequestMapping("/api1/")
 public class SchoolController {
     private final Logger log = LoggerFactory.getLogger(this.getClass().getName());
-    @Autowired
-    private UsersRepository usersRepository;
 
     @Autowired
     private SchoolRepository schoolRepository;
@@ -33,14 +28,6 @@ public class SchoolController {
         try {
             List<School> schoolList = schoolRepository.findAll();
             return new ResponseEntity(schoolList, HttpStatus.OK);
-
-        } catch (ValidationException vx) {
-            vx.printStackTrace();
-            log.info("UserController -> getAllUsers -> ValidationException");
-//            return new ResponseEntity(generateGlobalResponse.generateGlobalResponse(
-//                    null, "constants.getRESPONSE_INDICATOR_ERROR_0()", "constants.getSUCCESSFULL_RESPONSE_CODE_200()",
-//                    "propertiesUtil.getApplicationMessages()"), HttpStatus.OK);
-
         } catch (Exception ex) {
             ex.printStackTrace();
             log.info("UserController -> getAllUsers -> Exception -> 91");
